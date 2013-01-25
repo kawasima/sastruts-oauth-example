@@ -6,22 +6,17 @@ import net.unit8.sastruts.oauth.provider.entity.ClientApplication;
 import net.unit8.sastruts.oauth.provider.service.ClientApplicationService;
 import org.apache.commons.io.IOUtils;
 import org.seasar.framework.exception.IORuntimeException;
-import org.seasar.framework.util.InputStreamReaderUtil;
-import org.seasar.framework.util.JSONSerializer;
 import org.seasar.framework.util.StringUtil;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
-import org.seasar.struts.util.RequestUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -65,7 +60,8 @@ public class ConsumerAction {
 
         try {
             URL tokenUrl = new URL("http://localhost:8093/provider/token?"
-                    + "client_id=" + clientApplication.key
+                    + "code=" + consumerForm.code
+                    + "&client_id=" + clientApplication.key
                     + "&client_secret=" + clientApplication.secret
                     + "&grant_type=authorization_code"
             );

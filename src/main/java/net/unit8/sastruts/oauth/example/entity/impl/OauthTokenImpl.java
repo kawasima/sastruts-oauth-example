@@ -3,13 +3,15 @@ package net.unit8.sastruts.oauth.example.entity.impl;
 
 import net.unit8.sastruts.oauth.provider.entity.OauthTokenBase;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table
 @Entity(name = "OauthToken")
 public class OauthTokenImpl extends OauthTokenBase {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long id;
+
     @ManyToOne
     public ClientApplicationImpl clientApplication;
 
