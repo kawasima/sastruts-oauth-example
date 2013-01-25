@@ -11,4 +11,7 @@ import java.io.Serializable;
  */
 public class ConsumerForm implements Serializable {
     public String code;
+    public String responseType;
+    public String clientId;
+    public String redirectUrl;
 }

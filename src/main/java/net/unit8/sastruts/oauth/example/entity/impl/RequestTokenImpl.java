@@ -7,6 +7,7 @@ import net.unit8.sastruts.oauth.provider.entity.ResourceOwner;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,6 +19,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="OAUTH_TOKEN")
 public class RequestTokenImpl extends OauthTokenBase implements RequestToken {
+    @Transient
     private String providedOauthVerifier;
 
     public RequestTokenImpl() {

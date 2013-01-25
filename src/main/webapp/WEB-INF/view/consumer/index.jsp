@@ -9,7 +9,7 @@
     <s:form action="/provider/authorize" method="GET">
       <p>
         <strong>Response type:</strong>
-        <select name="response_type">
+        <select name="responseType">
           <option>Select response type...</option>
           <option value="code">code</option>
           <option value="token">token</option>
@@ -17,7 +17,7 @@
       </p>
       <p>
         <strong>Application:</strong>
-        <select name="client_id">
+        <select name="clientId">
           <option>Select application...</option>
           <c:forEach var="clientApplication" items="${clientApplications}">
             <option value="${f:h(clientApplication.key)}">${f:h(clientApplication.name)}</option>
